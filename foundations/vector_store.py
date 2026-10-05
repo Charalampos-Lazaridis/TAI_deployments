@@ -141,7 +141,8 @@ def pinecone_health() -> dict[str, Any]:
         )
 
         stats = get_index().describe_index_stats()
-        namespace_summary = stats.namespaces.get(get_namespace())
+        # Stats report the blank namespace under the key "__default__".
+        namespace_summary = stats.namespaces.get(get_namespace() or "__default__")
         report.update(
             total_vector_count=stats.total_vector_count,
             namespace_vector_count=namespace_summary.vector_count if namespace_summary else 0,

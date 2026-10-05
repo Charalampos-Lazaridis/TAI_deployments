@@ -1,6 +1,9 @@
 # Environment — never commit real keys
 .env
 
+# Source documents for RAG — keep private (repo is public)
+digifab.txt
+
 # Python
 __pycache__/
 *.py[cod]
